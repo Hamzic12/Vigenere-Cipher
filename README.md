@@ -1,3 +1,4 @@
 # Vigenere Cipher
 
-- Console app for encrypting messages via Vigenere Cipher
+- Console app of Vigenere Cipher
+    - Encryption and Decryption
