@@ -1,4 +1,5 @@
 # Vigenere Cipher
 
-- Console app of Vigenere Cipher
+- Vigenere Cipher App with GUI
     - Encryption and Decryption
+    - GUI = tkinter
