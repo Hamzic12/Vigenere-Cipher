@@ -3,7 +3,8 @@ alphabet = "abcdefghijklmnopqrstuvwxyz"
 letter_index = dict(zip(alphabet, range(len(alphabet))))
 index_letter = dict(zip(range(len(alphabet)), alphabet))
 
-choice = input("Encrypt or Decrypt a message: ")
+choice = input("Encrypt or decrypt a message: ")
+
 
 def encrypt(message, key):
     #split into length of key
@@ -38,15 +39,24 @@ def decrypt(encrypted, key):
 
 
 def choose(choice):
-    choice = choice.lower()
-    key = input("Enter the key: ")
-    
-    if choice == "encrypt":
-        message = input("Enter your message: ")
-        print(encrypt(message, key))
+    #if choice is not either encrypt or decrypt it will ask again until the right choice is written
+    try:
+        choice = choice.lower()
+        if choice not in ["encrypt", "decrypt"]:
+            raise ValueError("Invalid choice.")
+        
+        key = input("Enter the key: ")
 
-    else:
-        encrypted = input("Enter your encrypted message: ")
-        print(decrypt(encrypted, key))
+        match choice:
+            case "encrypt":
+                message = input("Enter your message: ")
+                print(encrypt(message, key))
+            case "decrypt":
+                encrypted_message = input("Enter your encrypted message: ")
+                print(decrypt(encrypted_message, key))
+
+    except ValueError:
+        print(ValueError)
+        choose(input("Try again. Enter encrypt or decrypt: "))
 
 choose(choice)
