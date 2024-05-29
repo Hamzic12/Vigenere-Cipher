@@ -5,6 +5,8 @@ index_letter = dict(zip(range(len(alphabet)), alphabet))
 
 
 def encrypt(message, key):
+    message = message.lower()
+    key = key.lower()
     #split into length of key
     split_message = [message[i: i + len(key)] for i in range(0, len(message), len(key))]
     encrypted_message = ""
@@ -22,6 +24,8 @@ def encrypt(message, key):
     return encrypted_message
 
 def decrypt(encrypted, key):
+    encrypted = encrypted.lower()
+    key = key.lower()
     split_message = [encrypted[i: i + len(key)] for i in range(0, len(encrypted), len (key))]
     decrypted_message = ""
     
